@@ -1,6 +1,16 @@
-class Building{
+class Building extends Sprite{
     constructor({position = {x:0, y:0}}){
-       this.position = position
+        super({
+            position,
+            imageSrc:'img/tower.png',
+            frames: {
+                max: 19
+            },
+            offset: {
+                x:0,
+                y:-80
+            }
+        })
        this.width = 64*2
        this.height = 64
        this.centre = { 
@@ -10,29 +20,33 @@ class Building{
        this.projectiles = []
        this.radius = 250
        this.target
-       this.frames = 0
     }
     draw(){
-        c.fillStyle = 'blue'
-        c.fillRect(this.position.x,this.position.y, this.width, 64)
-        c.beginPath()
-        c.arc(this.centre.x,this.centre.y,this.radius,0,Math.PI*2)
-        c.fillStyle = 'rgba(0,0,255,0.2)'
-        c.fill()
+        super.draw()
+        //c.fillStyle = 'blue'
+        //c.fillRect(this.position.x,this.position.y, this.width, 64)
+        //c.beginPath()
+        //c.arc(this.centre.x,this.centre.y,this.radius,0,Math.PI*2)
+        //c.fillStyle = 'rgba(0,0,255,0.2)'
+        //c.fill()
     }
     update(){
         this.draw()
-        this.frames++
-        if(this.frames % 100 === 0 && this.target){
+        if(this.target || !this.target && this.frames.current != 0)super.update()
+        if(this.target && this.frames.current === 6 && this.frames.elapsed % this.frames.hold ===0){
+            this.shoot()
+        }
+    }
+        shoot(){
             this.projectiles.push(
                 new Projectile({
                     position: {
-                        x: this.centre.x,
-                        y: this.centre.y
+                        x: this.centre.x - 20,
+                        y: this.centre.y - 110
                     },
                     enemy: this.target
                 })
             )
+            
         }
     }
-}

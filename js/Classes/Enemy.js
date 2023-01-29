@@ -1,5 +1,6 @@
 class Enemy{
     constructor({ position = {x:0, y:0}}){
+  
         this.position = position
         this.width = 100
         this.height = 50
@@ -14,14 +15,12 @@ class Enemy{
             x: 0,
             y: 0
         }
+        this.image = new Image()
+        this.image.src ='img/Enemy2.png'
     }
     draw() {
-        c.fillStyle ='red'
-        //c.fillRect(this.position.x,this.position.y,this.width,this.height)
-        c.beginPath()
-        c.arc(this.centre.x,this.centre.y,this.radius,0,Math.PI*2)
-        c.fill()
-
+        c.drawImage(this.image,this.position.x,this.position.y)
+        
         //health
         c.fillStyle = 'red'
         c.fillRect(this.position.x, this.position.y-35, this.width,10)
