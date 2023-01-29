@@ -13,7 +13,7 @@ for(let i = 0; i<placementTilesData.length; i+=20){
 const placementTiles = []
 placementTilesData2D.forEach((row, y) => {
     row.forEach((symbol, x) => {
-        if (symbol === 389){
+        if (symbol === 230){
             //adding building placement tile here
             placementTiles.push(
                 new PlacementTile({
@@ -30,7 +30,7 @@ const image = new Image()
 image.onload = () => {
     animate()
 }
-image.src = 'img/Map.png'
+image.src = 'img/Map Level 1.png'
 
 const enemies = []
 function spawnEnemies(spawnCount){
