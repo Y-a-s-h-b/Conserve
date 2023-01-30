@@ -1,6 +1,12 @@
-class Enemy{
+class Enemy extends Sprite{
     constructor({ position = {x:0, y:0}}){
-  
+        super({
+            position,
+            imageSrc: 'img/orc.png',
+            frames: {
+                max: 7
+            }
+        })
         this.position = position
         this.width = 100
         this.height = 50
@@ -15,11 +21,9 @@ class Enemy{
             x: 0,
             y: 0
         }
-        this.image = new Image()
-        this.image.src ='img/Enemy2.png'
     }
     draw() {
-        c.drawImage(this.image,this.position.x,this.position.y)
+        super.draw()
         
         //health
         c.fillStyle = 'red'
@@ -31,11 +35,12 @@ class Enemy{
     }
     update(){
         this.draw()
+        super.update()
         const waypoint = waypoints[this.waypointIndex]
         const yDistance = waypoint.y - this.centre.y
         const xDistance = waypoint.x - this.centre.x 
         const angle = Math.atan2(yDistance,xDistance)
-        const speed = 1
+        const speed = 0.6
         this.velocity.x = Math.cos(angle) * speed
         this.velocity.y = Math.sin(angle) * speed
         this.position.x += this.velocity.x

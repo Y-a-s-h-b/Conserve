@@ -14,8 +14,8 @@ class Sprite{
         this.frames = {
             max: frames.max,
             current:0,
-            elapsed:0,
-            hold:3
+            elapsed: 0,
+            hold: 6
         }
         this.offset = offset
     }
@@ -45,9 +45,10 @@ class Sprite{
     update(){
             //Animation
         this.frames.elapsed++
+        console.log(this.frames.hold)
         if(this.frames.elapsed % this.frames.hold ===0){
             this.frames.current++
-            if(this.frames.current >= this.frames.max ){
+            if(this.frames.current >= this.frames.max){
                 this.frames.current = 0
             }
         }

@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas') //Selecting canvas
 const c = canvas.getContext('2d') //Creating a variable c to use canvas commands
 canvas.width = 1280
-canvas.height = 768
+canvas.height = 760
 
 c.fillStyle = 'white'
 c.fillRect(0,0, canvas.width,canvas.height)
@@ -48,6 +48,7 @@ let activeTile = undefined
 let enemyCount = 3
 let hearts = 10
 let sun = 100
+const explosions = []
 spawnEnemies(enemyCount)
 
 function animate(){
@@ -67,6 +68,14 @@ function animate(){
                 document.querySelector('#gameOver').style.display ='flex'
                 
             }
+        }
+    }
+    for(let i = explosions.length-1; i >= 0; i--){
+        const explosion = explosions[i]
+        explosion.draw()
+        explosion.update()
+        if(explosion.frames.current >= explosion.frames.max - 1){
+            explosions.splice(i,1)
         }
     }
      // Tracking total enemies
@@ -113,6 +122,14 @@ function animate(){
                         document.querySelector('#sun').innerHTML = sun
                     }
                 }
+                explosions.push
+                (new Sprite(
+                    {   
+                    position: {x: projectile.position.x, y:projectile.position.y},
+                    imageSrc: '/img/exp.png',
+                    frames: {max: 4},
+                    offset: {x: 0,y: 0}
+                    }))
                 building.projectiles.splice(i, 1)
             }
         }
@@ -161,6 +178,7 @@ window.addEventListener('mousemove',(event) =>{
     }
 
 })
+
 
 
 
