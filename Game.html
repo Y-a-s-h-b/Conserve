@@ -1,74 +1,97 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Russo+One&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: black;
-            font-family: 'Russo One', sans-serif;
-            width: 1280px;
-            height: 720px;
-        }
-    </style>
-    
-    <div style = "position: relative; display: inline-block;">
-        <canvas></canvas>
-        <div
-        id="gameOver"
-         style ="
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 72px;
-        color: white;
-        -webkit-text-stroke: 3px black;">
-        GAME OVER
-    </div>
-    
-    <div style="
-            position: absolute;
-            top: 4px;
-            right: 8px;
-            font-size: 40px;
-            color: white;
-            -webkit-text-stroke: 2px black;
-            display: flex;
-            align-items: center;"
-            >
-            <div> 
-                <div id="sun">100</div>
-            </div>
-        <div style="display: flex; align-items:centre">
-            <svg style="width:35px;color: red;margin-right: 2px;"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6">
-        <path fill-rule ="evenodd"
-        d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
-        clip-rule = "evenodd"
-        />
-    </svg>
-        <div id="hearts">10</div>
-        </div>
-        
-    </div>
-</div>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  body {
+    background-color: black;
+    font-family: 'Changa One', cursive;
+  }
+</style>
+<div style="position: relative; display: inline-block">
+  <canvas></canvas>
+  <div
+    id="gameOver"
+    style="
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      color: white;
+      -webkit-text-stroke: 3px black;
+    "
+  >
+    GAME OVER
+  </div>
+  <div
+    style="
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 80px;
+      background: linear-gradient(
+        to left bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0)
+      );
+    "
+  ></div>
+  <div
+    style="
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      font-size: 36px;
+      color: white;
+      -webkit-text-stroke: 2px black;
+      display: flex;
+      align-items: center;
+    "
+  >
+    <!-- coins -->
+    <div style="display: flex; align-items: center; margin-right: 20px">
+      
+      <svg style="width: 25px; color: gold; margin-right: 5px"
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM352 256c0 53-43 96-96 96s-96-43-96-96s43-96 96-96s96 43 96 96zm32 0c0-70.7-57.3-128-128-128s-128 57.3-128 128s57.3 128 128 128s128-57.3 128-128z"
+      fill="currentColor"/>
 
-    <script src="js/waypoints.js"></script>
-    <script src="js/placementTiles.js"></script>
-    <script src="js/Classes/Sprite.js"></script>
-    <script src="js/Classes/PlacementTile.js"></script>
-    <script src="js/Classes/Building.js"></script>
-    <script src="js/Classes/Enemy.js"></script>
-    <script src="js/Classes/Projectile.js"></script>
-    <script src="js/index.js"></script>
-    
-</html>
+      </svg>
+      <div id="coins">100</div>
+    </div>
+    <!-- hearts -->
+    <div style="display: flex; align-items: center">
+      <svg
+        style="width: 35px; color: red; margin-right: 5px"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <div id="hearts">10</div>
+    </div>
+  </div>
+</div>
+<script src="js/placementTiles.js"></script>
+<script src="js/waypoints.js"></script>
+<script src="js/Classes/Sprite.js"></script>
+<script src="js/Classes/Building.js"></script>
+<script src="js/Classes/Enemy.js"></script>
+<script src="js/Classes/PlacementTile.js"></script>
+<script src="js/Classes/Projectile.js"></script>
+<script src="js/index.js"></script>
+

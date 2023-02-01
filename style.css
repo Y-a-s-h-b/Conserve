@@ -1,25 +1,28 @@
+
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Abel', sans-serif;
+    font-family: 'Russo One', sans-serif;
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
-    background: url("/img/Conserve.png");
+    background: url("img/Conserve\ Final.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 a{
-    height:calc(100vh - 60px);
+    height:calc(120vh - 30vh);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 a button{
-    font-family: "Times New Roman", Times, serif;
+    
+    font-family: 'Abel', sans-serif;
+    font-family: 'Russo One', sans-serif;
     width: 200px;
     height: 60px;
     border: none;
@@ -27,9 +30,10 @@ a button{
     border-radius: 10px;
     margin-top: 300px;
     font-size: 30px;
-    font-style: oblique;
+
     background: linear-gradient(#5563f4dc,#3cc9b6);
     cursor: pointer;
+    font-weight: bold;
 }
 a button:hover{
     transform: translateY(5px);
